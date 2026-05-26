@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model IP {
+  id         Int         @id @default(autoincrement())
+  title      String
+  type       String
+  decade     String?
+  characters Character[]
+  selections Selection[]
+}
+
+model Character {
+  id          Int       @id @default(autoincrement())
+  name        String
+  ipId        Int
+  ip          IP        @relation(fields: [ipId], references: [id])
+  p1Sessions  Session[] @relation("P1Character")
+  p2Sessions  Session[] @relation("P2Character")
+}
+
+model Session {
+  id            String      @id @default(cuid())
+  code          String      @unique
+  mode          String
+  p1Email       String?
+  p2Email       String?
+  p1Done        Boolean     @default(false)
+  p2Done        Boolean     @default(false)
+  p1CharacterId Int?
+  p2CharacterId Int?
+  p1Character   Character?  @relation("P1Character", fields: [p1CharacterId], references: [id])
+  p2Character   Character?  @relation("P2Character", fields: [p2CharacterId], references: [id])
+  createdAt     DateTime    @default(now())
+  selections    Selection[]
+}
+
+model Selection {
+  id        Int     @id @default(autoincrement())
+  sessionId String
+  player    Int
+  ipId      Int
+  known     Boolean
+  session   Session @relation(fields: [sessionId], references: [id])
+  ip        IP      @relation(fields: [ipId], references: [id])
+
+  @@unique([sessionId, player, ipId])
+}
