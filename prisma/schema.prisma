@@ -52,3 +52,12 @@ model Selection {
 
   @@unique([sessionId, player, ipId])
 }
+
+model Suggestion {
+  id          Int      @id @default(autoincrement())
+  title       String
+  type        String   // "movie" | "tv" | "game" | "anime" | "cartoon" | "manga" | "other"
+  notes       String?  // optional context from the user
+  submittedAt DateTime @default(now())
+  reviewed    Boolean  @default(false)
+}

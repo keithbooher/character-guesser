@@ -4,6 +4,118 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
+const VALID_TYPES = [
+  { value: 'movie', label: 'Movie' },
+  { value: 'tv', label: 'TV Show' },
+  { value: 'game', label: 'Video Game' },
+  { value: 'anime', label: 'Anime' },
+  { value: 'cartoon', label: 'Cartoon' },
+  { value: 'manga', label: 'Manga' },
+  { value: 'other', label: 'Other' },
+];
+
+function SuggestForm() {
+  const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState('');
+  const [type, setType] = useState('movie');
+  const [notes, setNotes] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!title.trim()) return;
+    setStatus('loading');
+    try {
+      const res = await fetch('/api/suggestions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: title.trim(), type, notes: notes.trim() || undefined }),
+      });
+      if (res.ok) {
+        setStatus('done');
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  }
+
+  if (!open) {
+    return (
+      <button
+        onClick={() => setOpen(true)}
+        className="text-gray-500 hover:text-gray-300 text-sm underline underline-offset-2 transition-colors"
+      >
+        Suggest a Movie, Show, or Game
+      </button>
+    );
+  }
+
+  return (
+    <div className="bg-[#1a1a1a] border border-gray-700 rounded-xl p-5 text-left">
+      {status === 'done' ? (
+        <p className="text-green-400 text-sm text-center py-2">Thanks! We'll review it.</p>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <div>
+            <label className="block text-gray-400 text-xs mb-1">Title</label>
+            <input
+              type="text"
+              placeholder="e.g. Breaking Bad"
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+              className="w-full bg-[#0f0f0f] border border-gray-600 rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#a855f7]"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-gray-400 text-xs mb-1">Type</label>
+            <select
+              value={type}
+              onChange={e => setType(e.target.value)}
+              className="w-full bg-[#0f0f0f] border border-gray-600 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#a855f7]"
+            >
+              {VALID_TYPES.map(t => (
+                <option key={t.value} value={t.value}>{t.label}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-gray-400 text-xs mb-1">Any notes? <span className="text-gray-600">(optional)</span></label>
+            <textarea
+              placeholder="Characters you'd expect, etc."
+              value={notes}
+              onChange={e => setNotes(e.target.value)}
+              rows={2}
+              className="w-full bg-[#0f0f0f] border border-gray-600 rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#a855f7] resize-none"
+            />
+          </div>
+          {status === 'error' && (
+            <p className="text-red-400 text-xs">Something went wrong. Try again.</p>
+          )}
+          <div className="flex gap-2">
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="flex-1 py-2 bg-[#a855f7]/20 border border-[#a855f7] text-[#a855f7] rounded-lg text-sm font-semibold hover:bg-[#a855f7]/30 transition-colors disabled:opacity-50"
+            >
+              {status === 'loading' ? 'Sending...' : 'Submit'}
+            </button>
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="px-4 py-2 text-gray-500 hover:text-gray-300 text-sm transition-colors"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      )}
+    </div>
+  );
+}
+
 type Character = {
   id: number;
   name: string;
@@ -161,6 +273,11 @@ export default function DonePage() {
         >
           Play Again
         </Link>
+
+        <div className="mt-10 pt-8 border-t border-gray-800 text-center">
+          <p className="text-gray-600 text-xs mb-3">Didn't see something you know?</p>
+          <SuggestForm />
+        </div>
       </div>
     </main>
   );
