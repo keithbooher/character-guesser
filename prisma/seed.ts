@@ -486,6 +486,548 @@ const seedData = [
     decade: '00s',
     characters: ['Timmy Turner', 'Wanda', 'Cosmo', 'Poof', 'Mr. Turner', 'Vicky'],
   },
+
+  // Cartoons — 80s
+  {
+    title: 'Transformers',
+    type: 'cartoon',
+    decade: '80s',
+    characters: ['Optimus Prime', 'Bumblebee', 'Megatron', 'Starscream', 'Soundwave', 'Ironhide'],
+  },
+  {
+    title: 'G.I. Joe',
+    type: 'cartoon',
+    decade: '80s',
+    characters: ['Duke', 'Snake Eyes', 'Scarlett', 'Cobra Commander', 'Destro', 'Storm Shadow'],
+  },
+  {
+    title: 'He-Man and the Masters of the Universe',
+    type: 'cartoon',
+    decade: '80s',
+    characters: ['He-Man', 'Skeletor', 'Teela', 'Man-At-Arms', 'Orko', 'Battle Cat'],
+  },
+  {
+    title: 'ThunderCats',
+    type: 'cartoon',
+    decade: '80s',
+    characters: ['Lion-O', 'Tygra', 'Cheetara', 'Panthro', 'Snarf', 'Mumm-Ra'],
+  },
+  {
+    title: 'Teenage Mutant Ninja Turtles',
+    type: 'cartoon',
+    decade: '80s',
+    characters: ['Leonardo', 'Michelangelo', 'Donatello', 'Raphael', 'Splinter', 'Shredder'],
+  },
+  {
+    title: 'DuckTales',
+    type: 'cartoon',
+    decade: '80s',
+    characters: ['Scrooge McDuck', 'Huey', 'Dewey', 'Louie', 'Launchpad McQuack', 'Darkwing Duck'],
+  },
+  {
+    title: 'Inspector Gadget',
+    type: 'cartoon',
+    decade: '80s',
+    characters: ['Inspector Gadget', 'Penny', 'Brain', 'Dr. Claw', 'Chief Quimby'],
+  },
+  {
+    title: 'The Smurfs',
+    type: 'cartoon',
+    decade: '80s',
+    characters: ['Papa Smurf', 'Smurfette', 'Brainy Smurf', 'Clumsy Smurf', 'Gargamel', 'Azrael'],
+  },
+  {
+    title: 'Jem and the Holograms',
+    type: 'cartoon',
+    decade: '80s',
+    characters: ['Jem', 'Kimber', 'Aja', 'Shana', 'Raya', 'Pizzazz'],
+  },
+  {
+    title: 'Care Bears',
+    type: 'cartoon',
+    decade: '80s',
+    characters: ['Tenderheart Bear', 'Cheer Bear', 'Funshine Bear', 'Grumpy Bear', 'Love-a-Lot Bear'],
+  },
+
+  // Cartoons — 90s
+  {
+    title: 'Animaniacs',
+    type: 'cartoon',
+    decade: '90s',
+    characters: ['Yakko Warner', 'Wakko Warner', 'Dot Warner', 'Pinky', 'The Brain', 'Hello Nurse'],
+  },
+  {
+    title: 'Rugrats',
+    type: 'cartoon',
+    decade: '90s',
+    characters: ['Tommy Pickles', 'Chuckie Finster', 'Phil DeVille', 'Lil DeVille', 'Angelica Pickles', 'Susie Carmichael'],
+  },
+  {
+    title: 'Hey Arnold!',
+    type: 'cartoon',
+    decade: '90s',
+    characters: ['Arnold', 'Helga Pataki', 'Gerald', 'Phoebe', 'Sid', 'Stinky'],
+  },
+  {
+    title: "Rocko's Modern Life",
+    type: 'cartoon',
+    decade: '90s',
+    characters: ['Rocko', 'Heffer Wolfe', 'Filburt', 'Dr. Hutchison', 'Ed Bighead'],
+  },
+  {
+    title: 'The Powerpuff Girls',
+    type: 'cartoon',
+    decade: '90s',
+    characters: ['Blossom', 'Bubbles', 'Buttercup', 'Mojo Jojo', 'Him', 'Princess Morbucks'],
+  },
+  {
+    title: "Dexter's Laboratory",
+    type: 'cartoon',
+    decade: '90s',
+    characters: ['Dexter', 'Dee Dee', 'Mom', 'Dad', 'Mandark'],
+  },
+  {
+    title: 'Johnny Bravo',
+    type: 'cartoon',
+    decade: '90s',
+    characters: ['Johnny Bravo', 'Suzy', 'Carl', 'Little Suzy'],
+  },
+  {
+    title: 'Ed, Edd n Eddy',
+    type: 'cartoon',
+    decade: '90s',
+    characters: ['Ed', 'Edd', 'Eddy', 'Kevin', 'Nazz', 'Rolf'],
+  },
+  {
+    title: 'Courage the Cowardly Dog',
+    type: 'cartoon',
+    decade: '90s',
+    characters: ['Courage', 'Muriel Bagge', 'Eustace Bagge', 'Katz', 'Le Quack'],
+  },
+  {
+    title: 'Recess',
+    type: 'cartoon',
+    decade: '90s',
+    characters: ['T.J. Detweiler', 'Spinelli', 'Gretchen Grundler', 'Mikey Blumberg', 'Vince LaSalle', 'Gus Griswald'],
+  },
+
+  // Cartoons — 00s
+  {
+    title: 'Kim Possible',
+    type: 'cartoon',
+    decade: '00s',
+    characters: ['Kim Possible', 'Ron Stoppable', 'Wade', 'Shego', 'Dr. Drakken', 'Rufus'],
+  },
+  {
+    title: 'Danny Phantom',
+    type: 'cartoon',
+    decade: '00s',
+    characters: ['Danny Fenton', 'Sam Manson', 'Tucker Foley', 'Jazz Fenton', 'Vlad Masters', 'Skulker'],
+  },
+  {
+    title: "Foster's Home for Imaginary Friends",
+    type: 'cartoon',
+    decade: '00s',
+    characters: ['Mac', 'Bloo', 'Wilt', 'Eduardo', 'Coco', 'Frankie Foster'],
+  },
+  {
+    title: 'Codename Kids Next Door',
+    type: 'cartoon',
+    decade: '00s',
+    characters: ['Numbuh 1', 'Numbuh 2', 'Numbuh 3', 'Numbuh 4', 'Numbuh 5', 'Father'],
+  },
+  {
+    title: 'Samurai Jack',
+    type: 'cartoon',
+    decade: '00s',
+    characters: ['Samurai Jack', 'Aku', 'The Scotsman', 'Ashi', 'The Daughters of Aku'],
+  },
+  {
+    title: 'The Boondocks',
+    type: 'cartoon',
+    decade: '00s',
+    characters: ['Huey Freeman', 'Riley Freeman', 'Robert Freeman', 'Tom DuBois', 'Uncle Ruckus'],
+  },
+  {
+    title: 'American Dragon Jake Long',
+    type: 'cartoon',
+    decade: '00s',
+    characters: ['Jake Long', 'Trixie Carter', 'Arthur Spudinski', 'Grandpa', 'Fu Dog', 'Rose'],
+  },
+
+  // Cartoons — 10s
+  {
+    title: 'Regular Show',
+    type: 'cartoon',
+    decade: '10s',
+    characters: ['Mordecai', 'Rigby', 'Benson', 'Pops', 'Skips', 'Muscle Man'],
+  },
+  {
+    title: 'The Amazing World of Gumball',
+    type: 'cartoon',
+    decade: '10s',
+    characters: ['Gumball Watterson', 'Darwin Watterson', 'Anais Watterson', 'Nicole Watterson', 'Richard Watterson', 'Penny'],
+  },
+  {
+    title: 'Star vs. the Forces of Evil',
+    type: 'cartoon',
+    decade: '10s',
+    characters: ['Star Butterfly', 'Marco Diaz', 'Tom Lucitor', 'Janna', 'Buff Frog', 'Toffee'],
+  },
+  {
+    title: 'We Bare Bears',
+    type: 'cartoon',
+    decade: '10s',
+    characters: ['Grizzly Bear', 'Panda Bear', 'Ice Bear', 'Chloe Park', 'Charlie'],
+  },
+  {
+    title: 'Miraculous Ladybug',
+    type: 'cartoon',
+    decade: '10s',
+    characters: ['Marinette Dupain-Cheng', 'Adrien Agreste', 'Alya Césaire', 'Nino Lahiffe', 'Hawk Moth', 'Luka Couffaine'],
+  },
+  {
+    title: 'Voltron: Legendary Defender',
+    type: 'cartoon',
+    decade: '10s',
+    characters: ['Shiro', 'Keith', 'Lance', 'Pidge', 'Hunk', 'Princess Allura'],
+  },
+  {
+    title: 'She-Ra and the Princesses of Power',
+    type: 'cartoon',
+    decade: '10s',
+    characters: ['Adora', 'Catra', 'Glimmer', 'Bow', 'Scorpia', 'Entrapta'],
+  },
+  {
+    title: 'The Loud House',
+    type: 'cartoon',
+    decade: '10s',
+    characters: ['Lincoln Loud', 'Lori Loud', 'Leni Loud', 'Luna Loud', 'Luan Loud', 'Lana Loud'],
+  },
+  {
+    title: 'Amphibia',
+    type: 'cartoon',
+    decade: '10s',
+    characters: ['Anne Boonchuy', 'Sprig Plantar', 'Polly Plantar', 'Hop Pop Plantar', 'Marcy Wu', 'Sasha Waybright'],
+  },
+  {
+    title: 'The Owl House',
+    type: 'cartoon',
+    decade: '10s',
+    characters: ['Luz Noceda', 'Eda Clawthorne', 'King', 'Amity Blight', 'Willow Park', 'Gus Porter'],
+  },
+
+  // Cartoons — 20s
+  {
+    title: 'Arcane',
+    type: 'cartoon',
+    decade: '20s',
+    characters: ['Jinx', 'Vi', 'Jayce', 'Viktor', 'Silco', 'Caitlyn'],
+  },
+  {
+    title: 'Blue Eye Samurai',
+    type: 'cartoon',
+    decade: '20s',
+    characters: ['Mizu', 'Taigen', 'Akemi', 'Ringo', 'Fowler'],
+  },
+  {
+    title: 'Hilda',
+    type: 'cartoon',
+    decade: '20s',
+    characters: ['Hilda', 'Johanna', 'Frida', 'David', 'Alfur', 'Tontu'],
+  },
+
+  // Anime — 80s
+  {
+    title: 'Dragon Ball',
+    type: 'anime',
+    decade: '80s',
+    characters: ['Goku (kid)', 'Bulma', 'Yamcha', 'Krillin', 'Tien', 'Master Roshi'],
+  },
+  {
+    title: 'Fist of the North Star',
+    type: 'anime',
+    decade: '80s',
+    characters: ['Kenshiro', 'Raoh', 'Toki', 'Jagi', 'Rei', 'Mamiya'],
+  },
+  {
+    title: 'Mobile Suit Gundam',
+    type: 'anime',
+    decade: '80s',
+    characters: ['Amuro Ray', 'Char Aznable', 'Bright Noa', 'Sayla Mass', 'Lalah Sune'],
+  },
+  {
+    title: 'Captain Tsubasa',
+    type: 'anime',
+    decade: '80s',
+    characters: ['Tsubasa Ozora', 'Genzo Wakabayashi', 'Kojiro Hyuga', 'Roberto Hongo', 'Taro Misaki'],
+  },
+  {
+    title: 'Macross',
+    type: 'anime',
+    decade: '80s',
+    characters: ['Hikaru Ichijyo', 'Lynn Minmay', 'Roy Focker', 'Misa Hayase', 'Maximilian Jenius'],
+  },
+
+  // Anime — 90s
+  {
+    title: 'Rurouni Kenshin',
+    type: 'anime',
+    decade: '90s',
+    characters: ['Kenshin Himura', 'Kaoru Kamiya', 'Yahiko Myojin', 'Sanosuke Sagara', 'Aoshi Shinomori', 'Shishio Makoto'],
+  },
+  {
+    title: 'Yu Yu Hakusho',
+    type: 'anime',
+    decade: '90s',
+    characters: ['Yusuke Urameshi', 'Kazuma Kuwabara', 'Hiei', 'Kurama', 'Koenma', 'Keiko Yukimura'],
+  },
+  {
+    title: 'Inuyasha',
+    type: 'anime',
+    decade: '90s',
+    characters: ['Inuyasha', 'Kagome Higurashi', 'Miroku', 'Sango', 'Shippo', 'Sesshomaru'],
+  },
+  {
+    title: 'Cardcaptor Sakura',
+    type: 'anime',
+    decade: '90s',
+    characters: ['Sakura Kinomoto', 'Syaoran Li', 'Tomoyo Daidouji', 'Kero', 'Yukito Tsukishiro', 'Meiling Li'],
+  },
+  {
+    title: 'Digimon',
+    type: 'anime',
+    decade: '90s',
+    characters: ['Tai Kamiya', 'Agumon', 'Matt Ishida', 'Gabumon', 'Sora Takenouchi', 'Izzy Izumi'],
+  },
+  {
+    title: 'Yu-Gi-Oh!',
+    type: 'anime',
+    decade: '90s',
+    characters: ['Yugi Muto', 'Seto Kaiba', 'Joey Wheeler', 'Téa Gardner', 'Tristan Taylor', 'Yami Yugi'],
+  },
+  {
+    title: 'Trigun',
+    type: 'anime',
+    decade: '90s',
+    characters: ['Vash the Stampede', 'Meryl Strife', 'Milly Thompson', 'Nicholas D. Wolfwood', 'Knives'],
+  },
+  {
+    title: 'Outlaw Star',
+    type: 'anime',
+    decade: '90s',
+    characters: ['Gene Starwind', 'Jim Hawking', 'Melfina', 'Aisha Clan-Clan', 'Suzuka', 'Hot Ice Hilda'],
+  },
+  {
+    title: 'Revolutionary Girl Utena',
+    type: 'anime',
+    decade: '90s',
+    characters: ['Utena Tenjou', 'Anthy Himemiya', 'Touga Kiryuu', 'Saionji Kyouichi', 'Juri Arisugawa'],
+  },
+
+  // Anime — 00s
+  {
+    title: 'Code Geass',
+    type: 'anime',
+    decade: '00s',
+    characters: ['Lelouch vi Britannia', 'C.C.', 'Kallen Stadtfeld', 'Suzaku Kururugi', 'Nunnally vi Britannia', 'Jeremiah Gottwald'],
+  },
+  {
+    title: 'Gurren Lagann',
+    type: 'anime',
+    decade: '00s',
+    characters: ['Simon', 'Kamina', 'Yoko Littner', 'Nia Teppelin', 'Viral', 'Lord Genome'],
+  },
+  {
+    title: 'Ouran High School Host Club',
+    type: 'anime',
+    decade: '00s',
+    characters: ['Haruhi Fujioka', 'Tamaki Suoh', 'Kyoya Ootori', 'Hikaru Hitachiin', 'Kaoru Hitachiin', 'Mori Senpai'],
+  },
+  {
+    title: 'The Melancholy of Haruhi Suzumiya',
+    type: 'anime',
+    decade: '00s',
+    characters: ['Haruhi Suzumiya', 'Kyon', 'Yuki Nagato', 'Mikuru Asahina', 'Itsuki Koizumi'],
+  },
+  {
+    title: 'Soul Eater',
+    type: 'anime',
+    decade: '00s',
+    characters: ['Maka Albarn', 'Soul Evans', 'Death the Kid', 'Liz Thompson', 'Patty Thompson', 'Black Star'],
+  },
+  {
+    title: 'Fairy Tail',
+    type: 'anime',
+    decade: '00s',
+    characters: ['Natsu Dragneel', 'Lucy Heartfilia', 'Erza Scarlet', 'Gray Fullbuster', 'Happy', 'Wendy Marvell'],
+  },
+  {
+    title: 'Black Lagoon',
+    type: 'anime',
+    decade: '00s',
+    characters: ['Rock', 'Revy', 'Dutch', 'Benny', 'Balalaika', 'Roberta'],
+  },
+  {
+    title: 'Elfen Lied',
+    type: 'anime',
+    decade: '00s',
+    characters: ['Lucy', 'Kouta', 'Yuka', 'Nana', 'Mayu', 'Kurama'],
+  },
+  {
+    title: 'Toradora',
+    type: 'anime',
+    decade: '00s',
+    characters: ['Ryuji Takasu', 'Taiga Aisaka', 'Minori Kushieda', 'Yusaku Kitamura', 'Ami Kawashima'],
+  },
+  {
+    title: 'Clannad',
+    type: 'anime',
+    decade: '00s',
+    characters: ['Tomoya Okazaki', 'Nagisa Furukawa', 'Kyou Fujibayashi', 'Ryou Fujibayashi', 'Kotomi Ichinose', 'Fuko Ibuki'],
+  },
+
+  // Anime — 10s
+  {
+    title: 'One Punch Man',
+    type: 'anime',
+    decade: '10s',
+    characters: ["Saitama", 'Genos', "Speed-o'-Sound Sonic", 'Mumen Rider', 'Tatsumaki', 'Bang'],
+  },
+  {
+    title: 'Mob Psycho 100',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Shigeo Kageyama', 'Reigen Arataka', 'Dimple', 'Ritsu Kageyama', 'Ekubo', 'Teruki Hanazawa'],
+  },
+  {
+    title: 'Re:Zero',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Subaru Natsuki', 'Emilia', 'Rem', 'Ram', 'Beatrice', 'Roswaal'],
+  },
+  {
+    title: 'Konosuba',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Kazuma Satou', 'Aqua', 'Megumin', 'Darkness', 'Wiz', 'Vanir'],
+  },
+  {
+    title: 'No Game No Life',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Sora', 'Shiro', 'Jibril', 'Stephanie Dola', 'Fil Nilvalen'],
+  },
+  {
+    title: 'Kill la Kill',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Ryuko Matoi', 'Satsuki Kiryuin', 'Mako Mankanshoku', 'Nui Harime', 'Ragyo Kiryuin', 'Senketsu'],
+  },
+  {
+    title: 'Puella Magi Madoka Magica',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Madoka Kaname', 'Homura Akemi', 'Sayaka Miki', 'Mami Tomoe', 'Kyoko Sakura', 'Kyubey'],
+  },
+  {
+    title: 'Overlord',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Ainz Ooal Gown', 'Albedo', 'Shalltear Bloodfallen', 'Demiurge', 'Cocytus', 'Narberal Gamma'],
+  },
+  {
+    title: 'That Time I Got Reincarnated as a Slime',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Rimuru Tempest', 'Shion', 'Benimaru', 'Shuna', 'Milim Nava', 'Diablo'],
+  },
+  {
+    title: 'Haikyuu!!',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Shoyo Hinata', 'Tobio Kageyama', 'Daichi Sawamura', 'Koshi Sugawara', 'Asahi Azumane', 'Kei Tsukishima'],
+  },
+  {
+    title: 'Psycho-Pass',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Akane Tsunemori', 'Shinya Kogami', 'Nobuchika Ginoza', 'Shogo Makishima', 'Tomomi Masaoka'],
+  },
+  {
+    title: 'Vinland Saga',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Thorfinn', 'Askeladd', 'Bjorn', 'Thors', 'Canute', 'Floki'],
+  },
+  {
+    title: 'The Promised Neverland',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Emma', 'Norman', 'Ray', 'Isabella', 'Phil', 'Gilda'],
+  },
+  {
+    title: 'Dr. Stone',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Senku Ishigami', 'Taiju Oki', 'Chrome', 'Gen Asagiri', 'Kohaku', 'Tsukasa Shishio'],
+  },
+  {
+    title: "JoJo's Bizarre Adventure",
+    type: 'anime',
+    decade: '10s',
+    characters: ['Jonathan Joestar', 'Joseph Joestar', 'Jotaro Kujo', 'Dio Brando', 'Giorno Giovanna', 'Yoshikage Kira'],
+  },
+
+  // Anime — 20s
+  {
+    title: 'Jujutsu Kaisen',
+    type: 'anime',
+    decade: '20s',
+    characters: ['Yuji Itadori', 'Megumi Fushiguro', 'Nobara Kugisaki', 'Satoru Gojo', 'Ryomen Sukuna', 'Aoi Todo'],
+  },
+  {
+    title: 'Chainsaw Man',
+    type: 'anime',
+    decade: '20s',
+    characters: ['Denji', 'Power', 'Aki Hayakawa', 'Makima', 'Pochita', 'Himeno'],
+  },
+  {
+    title: 'Spy x Family',
+    type: 'anime',
+    decade: '20s',
+    characters: ['Loid Forger', 'Yor Forger', 'Anya Forger', 'Franky Franklin', 'Yuri Briar', 'Sylvia Sherwood'],
+  },
+  {
+    title: 'Oshi no Ko',
+    type: 'anime',
+    decade: '20s',
+    characters: ['Aqua Hoshino', 'Ruby Hoshino', 'Ai Hoshino', 'Kana Arima', 'Mem-cho', 'Akane Kurokawa'],
+  },
+  {
+    title: 'Blue Lock',
+    type: 'anime',
+    decade: '20s',
+    characters: ['Yoichi Isagi', 'Meguru Bachira', 'Rensuke Kunigami', 'Hyoma Chigiri', 'Seishiro Nagi', 'Reo Mikage'],
+  },
+  {
+    title: "Frieren: Beyond Journey's End",
+    type: 'anime',
+    decade: '20s',
+    characters: ['Frieren', 'Fern', 'Stark', 'Himmel', 'Eisen', 'Heiter'],
+  },
+  {
+    title: 'Bocchi the Rock',
+    type: 'anime',
+    decade: '20s',
+    characters: ['Hitori Gotoh', 'Nijika Ijichi', 'Ryo Yamada', 'Ikuyo Kita', 'Seika Ijichi'],
+  },
+  {
+    title: 'Mushoku Tensei',
+    type: 'anime',
+    decade: '20s',
+    characters: ['Rudeus Greyrat', 'Roxy Migurdia', 'Sylphiette', 'Eris Boreas Greyrat', 'Paul Greyrat'],
+  },
 ];
 
 async function main() {
