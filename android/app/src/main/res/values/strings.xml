@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Character Guesser</string>
+    <string name="title_activity_main">Character Guesser</string>
+    <string name="package_name">app.characterguesser</string>
+    <string name="custom_url_scheme">app.characterguesser</string>
+</resources>
