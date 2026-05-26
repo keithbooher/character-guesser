@@ -1,5 +1,16 @@
 import Link from 'next/link';
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Character Guesser',
+  description: 'Pick characters for the headband guessing game. Swipe through movies, TV, anime, and games to find characters both players know.',
+  url: 'https://characterguesser.app',
+  applicationCategory: 'GameApplication',
+  operatingSystem: 'Web, iOS, Android',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+};
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#0f0f0f] flex flex-col items-center justify-center px-4">
@@ -62,6 +73,10 @@ export default function HomePage() {
           Advertisement
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </main>
   );
 }

@@ -3,8 +3,31 @@ import Link from 'next/link';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Character Guesser',
-  description: 'The app that picks the perfect characters for your headband guessing game',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://characterguesser.app'),
+  title: {
+    default: 'Character Guesser — Pick Characters for the Headband Game',
+    template: '%s | Character Guesser',
+  },
+  description: 'The free app that finds characters both players know for the headband guessing game. Swipe through movies, TV shows, anime, and games — we pick the perfect mystery characters for each player.',
+  keywords: ['headband game', 'guess the character', 'character guessing game', 'who am I game', 'forehead game', 'party game', 'anime characters', 'movie characters'],
+  openGraph: {
+    type: 'website',
+    siteName: 'Character Guesser',
+    title: 'Character Guesser — Pick Characters for the Headband Game',
+    description: 'Swipe through 170+ IPs — movies, TV, anime, games — and get perfectly matched mystery characters for your headband game.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Character Guesser' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Character Guesser — Pick Characters for the Headband Game',
+    description: 'Swipe through 170+ IPs and get perfectly matched mystery characters for your headband game.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
