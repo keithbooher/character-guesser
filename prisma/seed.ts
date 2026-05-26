@@ -981,6 +981,12 @@ const seedData = [
 
   // Anime — 20s
   {
+    title: 'Solo Leveling',
+    type: 'anime',
+    decade: '20s',
+    characters: ['Sung Jinwoo', 'Cha Hae-In', 'Go Gunhee', 'Yoo Jinho', 'Thomas Andre', 'Liu Zhiwei'],
+  },
+  {
     title: 'Jujutsu Kaisen',
     type: 'anime',
     decade: '20s',
@@ -1027,6 +1033,24 @@ const seedData = [
     type: 'anime',
     decade: '20s',
     characters: ['Rudeus Greyrat', 'Roxy Migurdia', 'Sylphiette', 'Eris Boreas Greyrat', 'Paul Greyrat'],
+  },
+  {
+    title: 'Fionna and Cake',
+    type: 'cartoon',
+    decade: '20s',
+    characters: ['Fionna', 'Cake', 'Prince Gumball', 'Marshall Lee', 'Ice Queen', 'Simon Petrikov'],
+  },
+  {
+    title: 'The Grim Adventures of Billy & Mandy',
+    type: 'cartoon',
+    decade: '00s',
+    characters: ['Grim', 'Billy', 'Mandy', 'Irwin', 'Nergal', 'Hoss Delgado'],
+  },
+  {
+    title: 'Black Clover',
+    type: 'anime',
+    decade: '10s',
+    characters: ['Asta', 'Yuno', 'Noelle Silva', 'Yami Sukehiro', 'Magna Swing', 'Luck Voltia'],
   },
 ];
 
