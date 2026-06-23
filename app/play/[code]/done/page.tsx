@@ -132,6 +132,7 @@ type SessionData = {
   p2CharacterId: number | null;
   p1Done: boolean;
   p2Done: boolean;
+  sharedTrait: string | null;
 };
 
 export default function DonePage() {
@@ -145,6 +146,7 @@ export default function DonePage() {
   const [p1Revealed, setP1Revealed] = useState(false);
   const [p2Revealed, setP2Revealed] = useState(false);
   const [notReady, setNotReady] = useState(false);
+  const [confirmingPlayer, setConfirmingPlayer] = useState<'p1' | 'p2' | null>(null);
 
   useEffect(() => {
     async function loadSession() {
@@ -200,62 +202,96 @@ export default function DonePage() {
 
   return (
     <main className="min-h-screen bg-[#0f0f0f] flex flex-col items-center justify-center px-4 py-10">
+      {confirmingPlayer && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-6">
+          <div className="bg-[#1a1a1a] border border-gray-700 rounded-2xl p-6 w-full max-w-sm text-center">
+            <div className="text-3xl mb-3">🫣</div>
+            <h2 className="text-white font-bold text-lg mb-2">Reveal the character?</h2>
+            <p className="text-gray-400 text-sm mb-6">
+              Make sure {confirmingPlayer === 'p1' ? 'P1' : 'P2'} is ready — this will show their partner's character on screen.
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setConfirmingPlayer(null)}
+                className="flex-1 py-3 border border-gray-600 text-gray-300 rounded-xl font-semibold hover:border-gray-400 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  if (confirmingPlayer === 'p1') setP1Revealed(true);
+                  else setP2Revealed(true);
+                  setConfirmingPlayer(null);
+                }}
+                className="flex-1 py-3 bg-[#a855f7] text-white rounded-xl font-semibold hover:bg-[#9333ea] transition-colors"
+              >
+                Reveal
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="max-w-lg w-full text-center">
         <div className="text-5xl mb-3">🎉</div>
         <h1 className="text-3xl font-bold text-white mb-2">Characters Assigned!</h1>
 
-        {emailsProvided ? (
-          <div className="bg-[#1a1a1a] border border-gray-700 rounded-xl px-6 py-4 mb-8">
-            <p className="text-gray-300 text-sm">
-              {session?.p1Email && (
-                <span>Sent {session.p1Email.split('@')[0]}'s character to their email</span>
-              )}
-              {session?.p1Email && session?.p2Email && <span> and </span>}
-              {session?.p2Email && (
-                <span>sent {session.p2Email.split('@')[0]}'s character to their email</span>
-              )}
-              . Check your inboxes!
+        {session?.sharedTrait && (
+          <div className="bg-[#1a1a1a] border border-[#a855f7]/40 rounded-xl px-6 py-4 mb-4">
+            <p className="text-[#a855f7] text-xs font-semibold uppercase tracking-widest mb-1">Clue</p>
+            <p className="text-white font-medium">
+              {session.sharedTrait.charAt(0).toUpperCase() + session.sharedTrait.slice(1)}
             </p>
+            <p className="text-gray-500 text-xs mt-1">Use this as a hint while guessing!</p>
           </div>
-        ) : (
-          <p className="text-gray-400 mb-8 text-sm">
-            Tap "Reveal" to see your partner's character — make sure they look away first!
-          </p>
         )}
 
+        {emailsProvided && (
+          <div className="bg-[#1a1a1a] border border-gray-700 rounded-xl px-6 py-4 mb-4">
+            <p className="text-gray-300 text-sm">
+              Characters were sent to each player's email. Tap a card below to reveal anyway.
+            </p>
+          </div>
+        )}
+
+        <p className="text-gray-400 mb-6 text-sm">
+          Tap a card to reveal — tap again to hide.
+        </p>
+
         <div className="space-y-4 mb-8">
-          {/* Player 1 card */}
+          {/* P1 reveals their partner's character (P2's identity) */}
           <div className="bg-[#1a1a1a] border border-gray-700 rounded-2xl p-6">
-            <div className="text-gray-400 text-sm mb-3 font-medium">PLAYER 1's character (for P2 to see)</div>
-            {p1Revealed || emailsProvided ? (
-              <div>
+            <div className="text-gray-400 text-sm mb-3 font-medium">P1 — tap to see your partner's character</div>
+            {p1Revealed ? (
+              <button onClick={() => setP1Revealed(false)} className="w-full text-left">
                 <div className="text-2xl font-bold text-white mb-1">{p2Char?.name}</div>
-                <div className="text-gray-500 text-sm">from {p2Char?.ip.title}</div>
-              </div>
+                <div className="text-gray-500 text-sm mb-3">from {p2Char?.ip.title}</div>
+                <div className="text-gray-600 text-xs">Tap to hide</div>
+              </button>
             ) : (
               <button
-                onClick={() => setP1Revealed(true)}
+                onClick={() => setConfirmingPlayer('p1')}
                 className="w-full py-3 bg-[#a855f7]/20 border border-[#a855f7] text-[#a855f7] rounded-xl font-semibold hover:bg-[#a855f7]/30 transition-colors"
               >
-                🫣 P1: Reveal Your Partner's Character
+                🫣 Reveal P2's Character
               </button>
             )}
           </div>
 
-          {/* Player 2 card */}
+          {/* P2 reveals their partner's character (P1's identity) */}
           <div className="bg-[#1a1a1a] border border-gray-700 rounded-2xl p-6">
-            <div className="text-gray-400 text-sm mb-3 font-medium">PLAYER 2's character (for P1 to see)</div>
-            {p2Revealed || emailsProvided ? (
-              <div>
+            <div className="text-gray-400 text-sm mb-3 font-medium">P2 — tap to see your partner's character</div>
+            {p2Revealed ? (
+              <button onClick={() => setP2Revealed(false)} className="w-full text-left">
                 <div className="text-2xl font-bold text-white mb-1">{p1Char?.name}</div>
-                <div className="text-gray-500 text-sm">from {p1Char?.ip.title}</div>
-              </div>
+                <div className="text-gray-500 text-sm mb-3">from {p1Char?.ip.title}</div>
+                <div className="text-gray-600 text-xs">Tap to hide</div>
+              </button>
             ) : (
               <button
-                onClick={() => setP2Revealed(true)}
+                onClick={() => setConfirmingPlayer('p2')}
                 className="w-full py-3 bg-[#a855f7]/20 border border-[#a855f7] text-[#a855f7] rounded-xl font-semibold hover:bg-[#a855f7]/30 transition-colors"
               >
-                🫣 P2: Reveal Your Partner's Character
+                🫣 Reveal P1's Character
               </button>
             )}
           </div>

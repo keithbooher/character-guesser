@@ -20,6 +20,7 @@ model Character {
   id          Int       @id @default(autoincrement())
   name        String
   ipId        Int
+  traits      String    @default("[]")
   ip          IP        @relation(fields: [ipId], references: [id])
   p1Sessions  Session[] @relation("P1Character")
   p2Sessions  Session[] @relation("P2Character")
@@ -31,12 +32,14 @@ model Session {
   mode          String
   p1Email       String?
   p2Email       String?
+  ipPool        String?
   p1Done        Boolean     @default(false)
   p2Done        Boolean     @default(false)
   p1CharacterId Int?
   p2CharacterId Int?
   p1Character   Character?  @relation("P1Character", fields: [p1CharacterId], references: [id])
   p2Character   Character?  @relation("P2Character", fields: [p2CharacterId], references: [id])
+  sharedTrait   String?
   createdAt     DateTime    @default(now())
   selections    Selection[]
 }

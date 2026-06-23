@@ -16,13 +16,14 @@ export async function POST(
       return NextResponse.json({ error: 'Session not found' }, { status: 404 });
     }
 
-    const { p1, p2 } = await assignCharacters(session.id, prisma);
+    const { p1, p2, sharedTrait } = await assignCharacters(session.id, prisma);
 
     await prisma.session.update({
       where: { id: session.id },
       data: {
         p1CharacterId: p1.id,
         p2CharacterId: p2.id,
+        sharedTrait: sharedTrait ?? null,
       },
     });
 
