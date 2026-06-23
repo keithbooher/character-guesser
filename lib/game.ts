@@ -15,6 +15,8 @@ const TRAIT_LABELS: Record<string, string> = {
   green: 'both of your characters are green',
   twin: 'both of your characters have a twin',
   scar: 'both of your characters have a notable scar or disfigurement',
+  round_body: 'both of your characters have a round or rotund body shape',
+  muscular: 'both of your characters are notably muscular or buff',
   blonde: 'both of your characters are blonde',
   redhead: 'both of your characters have red or orange hair',
   white_hair: 'both of your characters have white or silver hair',
@@ -46,15 +48,16 @@ const TRAIT_LABELS: Record<string, string> = {
 
 function traitPriority(trait: string): number {
   // Lower = more surprising/fun, shown first
-  if (['bald', 'glasses', 'beard', 'green', 'twin', 'scar'].includes(trait)) return 0;
-  if (['blonde', 'redhead', 'white_hair'].includes(trait)) return 1;
-  if (['villain', 'antihero', 'redemption_arc', 'dies', 'royalty', 'orphan'].includes(trait)) return 2;
-  if (['animal', 'robot', 'supernatural'].includes(trait)) return 3;
-  if (trait.startsWith('initial:')) return 4;
-  if (['magic', 'has_powers', 'genius', 'scientist', 'mentor', 'detective', 'spy', 'sidekick', 'comic_relief', 'musician'].includes(trait)) return 5;
-  if (['fighter', 'parent', 'child', 'elderly', 'has_siblings'].includes(trait)) return 6;
-  if (trait.startsWith('decade:')) return 7;
-  return 8; // animated / type
+  if (['bald', 'glasses', 'beard', 'green', 'twin', 'scar', 'round_body'].includes(trait)) return 0;
+  if (['muscular'].includes(trait)) return 1;
+  if (['blonde', 'redhead', 'white_hair'].includes(trait)) return 2;
+  if (['villain', 'antihero', 'redemption_arc', 'dies', 'royalty', 'orphan'].includes(trait)) return 3;
+  if (['animal', 'robot', 'supernatural'].includes(trait)) return 4;
+  if (trait.startsWith('initial:')) return 5;
+  if (['magic', 'has_powers', 'genius', 'scientist', 'mentor', 'detective', 'spy', 'sidekick', 'comic_relief', 'musician'].includes(trait)) return 6;
+  if (['fighter', 'parent', 'child', 'elderly', 'has_siblings'].includes(trait)) return 7;
+  if (trait.startsWith('decade:')) return 8;
+  return 9; // animated / type
 }
 
 export function traitLabel(trait: string): string {

@@ -3,10 +3,10 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 // Trait keys:
-// bald, glasses, beard, blonde, redhead, white_hair, green, scar
+// bald, glasses, beard, blonde, redhead, white_hair, green, scar, round_body
 // animal, robot, supernatural
 // villain, antihero, redemption_arc, orphan, parent, royalty, dies, twin
-// has_powers, magic, genius, fighter, scientist, child, elderly
+// has_powers, magic, genius, fighter, scientist, child, elderly, muscular
 // mentor, detective, spy, sidekick, comic_relief, musician, has_siblings
 
 const traitMap: Record<string, string[]> = {
@@ -59,7 +59,7 @@ const traitMap: Record<string, string[]> = {
   'Max Mayfield': ['child', 'redhead'],
 
   // ── The Simpsons ────────────────────────────
-  'Homer Simpson': ['parent', 'bald'],
+  'Homer Simpson': ['parent', 'bald', 'round_body'],
   'Marge Simpson': ['parent'],
   'Bart Simpson': ['child', 'has_siblings', 'antihero'],
   'Lisa Simpson': ['child', 'genius', 'has_siblings', 'musician'],
@@ -67,7 +67,7 @@ const traitMap: Record<string, string[]> = {
   'Mr. Burns': ['villain', 'elderly', 'bald'],
 
   // ── South Park ──────────────────────────────
-  'Eric Cartman': ['child', 'villain'],
+  'Eric Cartman': ['child', 'villain', 'round_body'],
   'Stan Marsh': ['child'],
   'Kyle Broflovski': ['child'],
   'Kenny McCormick': ['child', 'dies'],
@@ -198,10 +198,10 @@ const traitMap: Record<string, string[]> = {
 
   // ── The Avengers ────────────────────────────
   'Iron Man': ['genius', 'scientist', 'has_powers', 'parent', 'dies'],
-  'Captain America': ['has_powers', 'fighter'],
-  'Thor': ['has_powers', 'royalty', 'parent', 'blonde', 'beard', 'dies', 'has_siblings'],
+  'Captain America': ['has_powers', 'fighter', 'muscular'],
+  'Thor': ['has_powers', 'royalty', 'parent', 'blonde', 'beard', 'dies', 'has_siblings', 'muscular'],
   'Black Widow': ['fighter', 'dies', 'spy'],
-  'Hulk': ['has_powers', 'scientist', 'genius', 'green'],
+  'Hulk': ['has_powers', 'scientist', 'genius', 'green', 'muscular'],
   'Hawkeye': ['fighter', 'parent', 'spy'],
 
   // ── The Dark Knight ─────────────────────────
@@ -247,13 +247,13 @@ const traitMap: Record<string, string[]> = {
   'Buzz Lightyear': ['has_powers'],
   'Jessie': ['redhead'],
   'Rex': ['animal'],
-  'Hamm': ['animal'],
+  'Hamm': ['animal', 'round_body'],
   'Mr. Potato Head': [],
 
   // ── Frozen ──────────────────────────────────
   'Elsa': ['has_powers', 'magic', 'royalty', 'white_hair', 'orphan', 'has_siblings'],
   'Anna': ['royalty', 'redhead', 'orphan', 'has_siblings'],
-  'Olaf': ['supernatural', 'dies'],
+  'Olaf': ['supernatural', 'dies', 'round_body'],
   'Kristoff': ['blonde', 'orphan'],
   'Hans': ['villain', 'royalty'],
   'Sven': ['animal'],
@@ -264,7 +264,7 @@ const traitMap: Record<string, string[]> = {
   'Scar': ['animal', 'villain', 'royalty', 'dies', 'scar'],
   'Nala': ['animal', 'royalty', 'parent'],
   'Timon': ['animal', 'sidekick', 'comic_relief'],
-  'Pumbaa': ['animal', 'sidekick', 'comic_relief'],
+  'Pumbaa': ['animal', 'sidekick', 'comic_relief', 'round_body'],
 
   // ── Finding Nemo ────────────────────────────
   'Nemo': ['animal', 'child'],
@@ -308,7 +308,7 @@ const traitMap: Record<string, string[]> = {
   'Buttercup': ['has_powers', 'magic', 'fighter', 'child', 'royalty', 'blonde'],
   'Inigo Montoya': ['fighter'],
   'Vizzini': ['genius', 'bald'],
-  'Fezzik': ['fighter'],
+  'Fezzik': ['fighter', 'muscular'],
   'Humperdinck': ['villain', 'royalty'],
 
   // ── Pulp Fiction ────────────────────────────
@@ -329,7 +329,7 @@ const traitMap: Record<string, string[]> = {
   'Mario': ['fighter', 'has_powers', 'beard', 'has_siblings'],
   'Luigi': ['fighter', 'has_powers', 'beard', 'has_siblings'],
   'Princess Peach': ['royalty', 'blonde'],
-  'Bowser': ['villain', 'royalty', 'parent'],
+  'Bowser': ['villain', 'royalty', 'parent', 'round_body'],
   'Toad': [],
   'Yoshi': ['animal', 'sidekick'],
 
@@ -404,11 +404,11 @@ const traitMap: Record<string, string[]> = {
   'Ahri': ['supernatural', 'has_powers', 'magic'],
 
   // ── Street Fighter ──────────────────────────
-  'Ryu': ['fighter'],
-  'Ken Masters': ['fighter', 'blonde'],
+  'Ryu': ['fighter', 'muscular'],
+  'Ken Masters': ['fighter', 'blonde', 'muscular'],
   'Chun-Li': ['fighter'],
   'Blanka': ['green', 'has_powers', 'fighter'],
-  'Zangief': ['fighter', 'beard'],
+  'Zangief': ['fighter', 'beard', 'muscular'],
   'Guile': ['fighter', 'blonde'],
 
   // ── Mortal Kombat ───────────────────────────
@@ -420,7 +420,7 @@ const traitMap: Record<string, string[]> = {
   'Kano': ['fighter', 'villain'],
 
   // ── Super Smash Bros ────────────────────────
-  'Kirby': ['has_powers', 'child'],
+  'Kirby': ['has_powers', 'child', 'round_body'],
   'Fox McCloud': ['fighter', 'has_powers'],
   'Samus': ['fighter', 'has_powers', 'blonde', 'orphan'],
   'Captain Falcon': ['fighter'],
@@ -455,8 +455,8 @@ const traitMap: Record<string, string[]> = {
   'Nico Robin': ['fighter', 'genius', 'scientist'],
 
   // ── Dragon Ball Z ───────────────────────────
-  'Goku': ['has_powers', 'fighter', 'parent', 'dies', 'orphan', 'has_siblings', 'mentor'],
-  'Vegeta': ['has_powers', 'fighter', 'royalty', 'villain', 'parent', 'antihero', 'redemption_arc'],
+  'Goku': ['has_powers', 'fighter', 'parent', 'dies', 'orphan', 'has_siblings', 'mentor', 'muscular'],
+  'Vegeta': ['has_powers', 'fighter', 'royalty', 'villain', 'parent', 'antihero', 'redemption_arc', 'muscular'],
   'Gohan': ['has_powers', 'fighter', 'child', 'parent', 'glasses', 'has_siblings'],
   'Piccolo': ['has_powers', 'fighter', 'villain', 'green', 'mentor'],
   'Frieza': ['villain', 'has_powers', 'royalty', 'dies'],
@@ -490,7 +490,7 @@ const traitMap: Record<string, string[]> = {
   'Katsuki Bakugo': ['has_powers', 'fighter', 'child', 'blonde'],
   'Ochaco Uraraka': ['has_powers', 'fighter', 'child'],
   'Shoto Todoroki': ['has_powers', 'fighter', 'child', 'white_hair', 'scar'],
-  'All Might': ['has_powers', 'fighter', 'blonde', 'bald', 'mentor'],
+  'All Might': ['has_powers', 'fighter', 'blonde', 'bald', 'mentor', 'muscular'],
   'Tenya Iida': ['has_powers', 'fighter', 'child', 'glasses'],
 
   // ── Fullmetal Alchemist ─────────────────────
@@ -600,11 +600,11 @@ const traitMap: Record<string, string[]> = {
   'Velma Dinkley': ['genius', 'glasses', 'detective'],
 
   // ── SpongeBob ───────────────────────────────
-  'SpongeBob': ['supernatural', 'child'],
-  'Patrick Star': ['supernatural', 'bald', 'sidekick', 'comic_relief'],
+  'SpongeBob': ['supernatural', 'child', 'round_body'],
+  'Patrick Star': ['supernatural', 'bald', 'sidekick', 'comic_relief', 'round_body'],
   'Squidward Tentacles': ['supernatural', 'comic_relief', 'musician'],
   'Sandy Cheeks': ['scientist', 'genius'],
-  'Mr. Krabs': ['supernatural', 'villain', 'parent'],
+  'Mr. Krabs': ['supernatural', 'villain', 'parent', 'round_body'],
   'Plankton': ['villain', 'genius', 'supernatural'],
 
   // ── Phineas and Ferb ────────────────────────
@@ -615,10 +615,10 @@ const traitMap: Record<string, string[]> = {
   'Dr. Doofenshmirtz': ['scientist', 'villain', 'parent', 'genius'],
 
   // ── The Fairly OddParents ───────────────────
-  'Timmy Turner': ['child', 'has_powers'],
+  'Timmy Turner': ['child', 'has_powers', 'round_body'],
   'Wanda': ['supernatural', 'has_powers', 'magic', 'redhead', 'parent', 'sidekick'],
   'Cosmo': ['supernatural', 'has_powers', 'magic', 'parent', 'blonde', 'sidekick', 'comic_relief'],
-  'Poof': ['supernatural', 'child'],
+  'Poof': ['supernatural', 'child', 'round_body'],
   'Mr. Turner': ['parent'],
   'Vicky': ['villain', 'redhead'],
 
@@ -639,7 +639,7 @@ const traitMap: Record<string, string[]> = {
   'Storm Shadow': ['fighter', 'villain', 'white_hair', 'spy'],
 
   // ── He-Man ──────────────────────────────────
-  'He-Man': ['fighter', 'has_powers', 'blonde', 'royalty'],
+  'He-Man': ['fighter', 'has_powers', 'blonde', 'royalty', 'muscular'],
   'Skeletor': ['villain', 'has_powers', 'magic', 'bald'],
   'Teela': ['fighter', 'redhead'],
   'Man-At-Arms': ['scientist', 'fighter', 'beard', 'parent', 'mentor'],
@@ -650,7 +650,7 @@ const traitMap: Record<string, string[]> = {
   'Lion-O': ['royalty', 'fighter', 'has_powers', 'redhead'],
   'Tygra': ['fighter', 'has_powers'],
   'Cheetara': ['fighter', 'has_powers', 'blonde'],
-  'Panthro': ['fighter', 'has_powers', 'bald', 'beard'],
+  'Panthro': ['fighter', 'has_powers', 'bald', 'beard', 'muscular'],
   'Snarf': ['animal', 'sidekick'],
   'Mumm-Ra': ['villain', 'supernatural', 'magic', 'bald', 'elderly'],
 
@@ -693,11 +693,11 @@ const traitMap: Record<string, string[]> = {
   'Pizzazz': ['villain', 'blonde', 'musician'],
 
   // ── Care Bears ──────────────────────────────
-  'Tenderheart Bear': ['has_powers', 'animal', 'parent'],
-  'Cheer Bear': ['has_powers', 'animal'],
-  'Funshine Bear': ['has_powers', 'animal', 'blonde'],
-  'Grumpy Bear': ['has_powers', 'animal'],
-  'Love-a-Lot Bear': ['has_powers', 'animal'],
+  'Tenderheart Bear': ['has_powers', 'animal', 'parent', 'round_body'],
+  'Cheer Bear': ['has_powers', 'animal', 'round_body'],
+  'Funshine Bear': ['has_powers', 'animal', 'blonde', 'round_body'],
+  'Grumpy Bear': ['has_powers', 'animal', 'round_body'],
+  'Love-a-Lot Bear': ['has_powers', 'animal', 'round_body'],
 
   // ── Animaniacs ──────────────────────────────
   'Yakko Warner': ['child'],
@@ -832,14 +832,14 @@ const traitMap: Record<string, string[]> = {
   'Benson': ['supernatural'],
   'Pops': ['elderly'],
   'Skips': ['supernatural', 'has_powers', 'fighter', 'elderly', 'bald'],
-  'Muscle Man': ['supernatural', 'comic_relief'],
+  'Muscle Man': ['supernatural', 'comic_relief', 'round_body'],
 
   // ── Amazing World of Gumball ────────────────
   'Gumball Watterson': ['child', 'supernatural'],
   'Darwin Watterson': ['child', 'supernatural', 'animal'],
   'Anais Watterson': ['child', 'genius'],
   'Nicole Watterson': ['parent', 'fighter', 'supernatural'],
-  'Richard Watterson': ['parent'],
+  'Richard Watterson': ['parent', 'round_body'],
 
   // ── Star vs. the Forces of Evil ─────────────
   'Star Butterfly': ['has_powers', 'magic', 'child', 'royalty', 'blonde'],
@@ -869,7 +869,7 @@ const traitMap: Record<string, string[]> = {
   'Keith': ['fighter', 'child'],
   'Lance': ['fighter', 'child'],
   'Pidge': ['child', 'genius', 'glasses'],
-  'Hunk': ['fighter'],
+  'Hunk': ['fighter', 'muscular'],
   'Princess Allura': ['royalty', 'has_powers', 'dies'],
 
   // ── She-Ra ──────────────────────────────────
@@ -933,7 +933,7 @@ const traitMap: Record<string, string[]> = {
   'Master Roshi': ['fighter', 'has_powers', 'elderly', 'bald', 'beard', 'genius', 'glasses', 'mentor'],
 
   // ── Fist of the North Star ──────────────────
-  'Kenshiro': ['fighter', 'has_powers'],
+  'Kenshiro': ['fighter', 'has_powers', 'muscular'],
   'Raoh': ['fighter', 'has_powers', 'villain'],
   'Toki': ['fighter', 'has_powers'],
   'Jagi': ['fighter', 'villain', 'dies'],
@@ -1041,7 +1041,7 @@ const traitMap: Record<string, string[]> = {
 
   // ── Gurren Lagann ───────────────────────────
   'Simon': ['child', 'has_powers', 'fighter', 'orphan'],
-  'Kamina': ['fighter', 'dies', 'has_powers'],
+  'Kamina': ['fighter', 'dies', 'has_powers', 'muscular'],
   'Yoko Littner': ['fighter', 'redhead'],
   'Nia Teppelin': ['supernatural', 'has_powers', 'blonde', 'royalty', 'dies'],
   'Viral': ['villain', 'supernatural', 'animal', 'antihero', 'redemption_arc'],
@@ -1114,7 +1114,7 @@ const traitMap: Record<string, string[]> = {
   "Speed-o'-Sound Sonic": ['fighter'],
   'Mumen Rider': ['fighter'],
   'Tatsumaki': ['has_powers', 'magic', 'fighter', 'child'],
-  'Bang': ['fighter', 'elderly', 'white_hair', 'genius'],
+  'Bang': ['fighter', 'elderly', 'white_hair', 'genius', 'muscular'],
 
   // ── Mob Psycho 100 ──────────────────────────
   'Shigeo Kageyama': ['has_powers', 'child', 'has_siblings'],
@@ -1192,7 +1192,7 @@ const traitMap: Record<string, string[]> = {
   'Tomomi Masaoka': ['parent', 'beard', 'detective'],
 
   // ── Vinland Saga ────────────────────────────
-  'Thorfinn': ['child', 'fighter', 'antihero', 'redemption_arc', 'orphan', 'scar'],
+  'Thorfinn': ['child', 'fighter', 'antihero', 'redemption_arc', 'orphan', 'scar', 'muscular'],
   'Askeladd': ['villain', 'fighter', 'dies', 'blonde', 'beard', 'mentor'],
   'Bjorn': ['fighter', 'beard', 'dies'],
   'Thors': ['fighter', 'dies', 'parent', 'beard'],
@@ -1218,7 +1218,7 @@ const traitMap: Record<string, string[]> = {
   // ── JoJo's Bizarre Adventure ────────────────
   "Jonathan Joestar": ['fighter', 'has_powers', 'dies'],
   'Joseph Joestar': ['fighter', 'has_powers', 'genius'],
-  'Jotaro Kujo': ['fighter', 'has_powers', 'parent'],
+  'Jotaro Kujo': ['fighter', 'has_powers', 'parent', 'muscular'],
   'Dio Brando': ['villain', 'has_powers', 'supernatural', 'blonde', 'dies'],
   'Giorno Giovanna': ['has_powers', 'villain', 'blonde'],
   'Yoshikage Kira': ['villain', 'has_powers'],
