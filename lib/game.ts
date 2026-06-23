@@ -14,12 +14,16 @@ const TRAIT_LABELS: Record<string, string> = {
   beard: 'both of your characters have a beard',
   green: 'both of your characters are green',
   twin: 'both of your characters have a twin',
+  scar: 'both of your characters have a notable scar or disfigurement',
   blonde: 'both of your characters are blonde',
   redhead: 'both of your characters have red or orange hair',
   white_hair: 'both of your characters have white or silver hair',
   villain: 'both of your characters are (or were) villains',
+  antihero: 'both of your characters are antiheroes',
+  redemption_arc: 'both of your characters have a redemption arc',
   dies: 'both of your characters die in their story',
   royalty: 'both of your characters are royalty or nobility',
+  orphan: 'both of your characters are orphans',
   supernatural: 'both of your characters are supernatural beings',
   animal: 'both of your characters are animals',
   robot: 'both of your characters are robots or cyborgs',
@@ -27,21 +31,28 @@ const TRAIT_LABELS: Record<string, string> = {
   has_powers: 'both of your characters have superpowers',
   genius: 'both of your characters are exceptionally intelligent',
   scientist: 'both of your characters are scientists or doctors',
+  mentor: 'both of your characters are mentors to the main hero',
+  detective: 'both of your characters work as detectives or investigators',
+  spy: 'both of your characters are spies or secret agents',
+  sidekick: 'both of your characters are loyal sidekicks',
+  comic_relief: 'both of your characters are comic relief',
+  musician: 'both of your characters are musicians',
   fighter: 'both of your characters are skilled fighters',
   parent: 'both of your characters are parents',
   child: 'both of your characters are children',
   elderly: 'both of your characters are elderly',
+  has_siblings: 'both of your characters have siblings',
 };
 
 function traitPriority(trait: string): number {
   // Lower = more surprising/fun, shown first
-  if (['bald', 'glasses', 'beard', 'green', 'twin'].includes(trait)) return 0;
+  if (['bald', 'glasses', 'beard', 'green', 'twin', 'scar'].includes(trait)) return 0;
   if (['blonde', 'redhead', 'white_hair'].includes(trait)) return 1;
-  if (['villain', 'dies', 'royalty'].includes(trait)) return 2;
+  if (['villain', 'antihero', 'redemption_arc', 'dies', 'royalty', 'orphan'].includes(trait)) return 2;
   if (['animal', 'robot', 'supernatural'].includes(trait)) return 3;
   if (trait.startsWith('initial:')) return 4;
-  if (['magic', 'has_powers', 'genius', 'scientist'].includes(trait)) return 5;
-  if (['fighter', 'parent', 'child', 'elderly'].includes(trait)) return 6;
+  if (['magic', 'has_powers', 'genius', 'scientist', 'mentor', 'detective', 'spy', 'sidekick', 'comic_relief', 'musician'].includes(trait)) return 5;
+  if (['fighter', 'parent', 'child', 'elderly', 'has_siblings'].includes(trait)) return 6;
   if (trait.startsWith('decade:')) return 7;
   return 8; // animated / type
 }
